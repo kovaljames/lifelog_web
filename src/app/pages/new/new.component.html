@@ -1,0 +1,49 @@
+<h1>Nova tarefa</h1>
+<div class="container">
+  <form [formGroup]="form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Título</mat-label>
+      <input
+          matInput
+          formControlName="title"
+          placeholder="Ex. seuemail@example.com"
+      >
+      <mat-error
+        *ngIf="form.controls['title'].hasError('minlength')">
+        Título tem no m├¡nimo 3 caracteres!
+      </mat-error>
+      <mat-error 
+        *ngIf="form.controls['title'].hasError('required')">
+          Título é um campo <strong>obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Data de conclusão</mat-label>
+      <input matInput
+        [matDatepicker]="picker"
+        [min]="minDate" [max]="maxDate"
+        formControlName="dateEnd" placeholder="MM/DD/YYYY">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput placeholder="Descreva a tarefa" formControlName="desc"></textarea>
+      <mat-error
+        *ngIf="form.controls['desc'].hasError('minlength')"
+      >
+      Descrição tem no mínimo 3 caracteres!
+      </mat-error>
+    </mat-form-field>
+
+    <br>
+    <p class="text-right">
+      <app-button (click)="submit()" [disabled]="form.invalid">
+        <i class="fa fa-save"></i>
+        Criar
+      </app-button>
+    </p>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+<mat-selection-list class="task-list" #taskselect [multiple]="false" *ngIf="tasks">
+  <mat-list-option class="task" *ngFor="let task of tasks" [value]="task.id">
+      {{ task.title }} <br>
+      <small>{{ task.dateEnd | date: 'dd/MM/yy' }}</small>
+      <div class="btn-section">
+          <div *ngIf="!task.done">
+              <button 
+                  type="button"
+                  mat-icon-button
+                  color="primary"
+                  (click)="markAsDone(task)">
+                  <mat-icon aria-hidden="false" aria-label="task-done">
+                      done
+                  </mat-icon>
+              </button> 
+          </div>
+          <div *ngIf="task.done">
+              <button 
+                  type="button"
+                  mat-icon-button
+                  color="primary"
+                  (click)="markAsUndone(task)">
+                  <mat-icon aria-hidden="false" aria-label="task-undone">
+                      undone
+                  </mat-icon>
+              </button> 
+          </div>
+      </div>
+      <mat-divider></mat-divider>
+  </mat-list-option>
+</mat-selection-list>

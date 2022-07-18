@@ -1,0 +1,17 @@
+<mat-toolbar class="fixed-header" color="primary">
+  <button mat-icon-button
+      class="example-icon"
+      (click)="drawer.open()"
+      *ngIf="!drawer.opened"
+  >
+      <mat-icon>menu</mat-icon>
+  </button>
+  <span>Lifelog</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <app-user-card></app-user-card>
+  </button>
+</mat-toolbar>

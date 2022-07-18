@@ -1,0 +1,11 @@
+<i class="fa fa-spinner fa-spin fa-2x" *ngIf="!tasks"></i>
+<button 
+    type="button"
+    class="btn-auth login"
+    mat-mini-fab
+    color="primary"
+    routerLink="/new">
+    <i class="fa fa-auth"></i>
+    <span>+</span>
+</button> 
+<app-task-list *ngIf="tasks" [tasks]="tasks"></app-task-list>

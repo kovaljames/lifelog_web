@@ -1,0 +1,19 @@
+<mat-drawer-container class="example-container" fullscreen>
+    <mat-drawer #drawer class="example-sidenav" opened mode="side">
+      <button type="button" mat-button (click)="drawer.close()" *ngIf="drawer.opened">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">menu</mat-icon>
+      </button><br>
+      <button mat-raised-button>
+        Home
+      </button><br>
+      <button mat-raised-button>
+        Minhas Tarefas
+      </button>
+    </mat-drawer>
+  
+    <app-header [drawer]="drawer"></app-header>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  
+  </mat-drawer-container>
